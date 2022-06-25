@@ -13,16 +13,16 @@ class Solution:
         if root is None:
             return None
         queue = [root]
+        temp = []
         while len(queue) > 0:
-            temp = []
-            while len(queue) != 0:
-                node = queue.pop(0)
-                if node.left is not None and node.right is not None:
-                    temp.append(node.left)
-                    temp.append(node.right)
-                if len(queue) == 0:
-                    node.next = None
-                else:
-                    node.next = queue[0]
-            queue = temp
+            node = queue.pop(0)
+            if node.left is not None and node.right is not None:
+                temp.append(node.left)
+                temp.append(node.right)
+            if len(queue) == 0:
+                node.next = None
+                queue = temp
+                temp = []
+            else:
+                node.next = queue[0]
         return root
