@@ -1,7 +1,5 @@
 class Solution:
     def letterCasePermutation(self, s: str) -> List[str]:
-        if s.isnumeric():
-            return [s]
         l = list(s)
         n = len(s)
         solution = []
