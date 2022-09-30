@@ -15,12 +15,12 @@ class Solution {
         }
         ListNode prev = null;
         ListNode current = head;
-        ListNode next = head.next;
-        while(current.next != null) {
+        head = head.next;
+        while(head != null) {
             current.next = prev;
             prev = current;
-            current = next;
-            next = current.next;
+            current = head;
+            head = current.next;
         }
         current.next = prev;
         return current;
