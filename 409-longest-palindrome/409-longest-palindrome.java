@@ -3,10 +3,11 @@ class Solution {
         Map<String, Integer> frequency = new HashMap<>();
         int length = 0;
         for(int i = 0; i < s.length(); i++) {
-            frequency.put(s.substring(i, i+1), frequency.getOrDefault(s.substring(i, i+1), 0) + 1);
-            if(frequency.get(s.substring(i, i+1)) % 2 == 0) {
+            String ch = s.substring(i, i+1);
+            frequency.put(ch, frequency.getOrDefault(ch, 0) + 1);
+            if(frequency.get(ch) % 2 == 0) {
                 length += 2;
-                frequency.remove(s.substring(i, i+1));
+                frequency.remove(ch);
             }
         }
         return frequency.size() > 0 ? length+1 : length;
